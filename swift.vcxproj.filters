@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\base">
+      <UniqueIdentifier>{b9146bcc-5609-49a5-8b0a-be89be1d849e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{7f02a072-32a1-407d-924a-9c23367d3be7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{e4cddfce-8ded-4e3d-921a-8b4fab80c8f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\win">
+      <UniqueIdentifier>{ab9cd3ea-70f7-4ab6-a665-893ff240b666}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\xml">
+      <UniqueIdentifier>{65ae7e7c-fa6f-4db7-b3b7-a5e5666db455}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base">
+      <UniqueIdentifier>{4c883299-cb8c-4b6e-8326-3bfe6223871e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{b4e4a097-87bf-44ba-acef-d24e2f5a68b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\controls">
+      <UniqueIdentifier>{4b05b853-e63b-4f4a-bae4-15c68f7c324d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\controls">
+      <UniqueIdentifier>{397a3b82-3e8a-4960-8ad2-97416cfce571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\win">
+      <UniqueIdentifier>{3cdf9fd9-8844-48a2-998f-44e5aaedfad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{8d8ca25c-28d4-4e55-beec-a79a5e5cc34b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\xml">
+      <UniqueIdentifier>{1efcd5fc-8aca-4221-92e7-87ef608e8d27}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="base\task.cpp">
+      <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\locker.cpp">
+      <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="core\layout.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\container.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\paint.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\style.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\widget.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\object.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\controls\break.cpp">
+      <Filter>Source Files\core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="core\controls\button.cpp">
+      <Filter>Source Files\core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="core\controls\div.cpp">
+      <Filter>Source Files\core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="core\controls\img.cpp">
+      <Filter>Source Files\core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="core\controls\span.cpp">
+      <Filter>Source Files\core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="util\string.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="win\builder.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\d2d_painter.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\dc.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\embed_resource.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\file.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\gdi_painter.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\image.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\local_resource.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="win\widget_root.cpp">
+      <Filter>Source Files\win</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xml.cpp">
+      <Filter>Source Files\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xmlerror.cpp">
+      <Filter>Source Files\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xmlparser.cpp">
+      <Filter>Source Files\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xmlstr.cpp">
+      <Filter>Source Files\xml</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\def.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\locker.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\message_pump.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\message_pump.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\scoped_ptr.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\singleton.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\task.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\task_center.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\task_center.hpp">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\time_ticks.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\tuple.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\type_list.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="core\attribute.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\const.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\container.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\context.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\def.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\layout.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\object.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\paint.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\style.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\types.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\widget.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\controls\break.h">
+      <Filter>Header Files\core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="core\controls\button.h">
+      <Filter>Header Files\core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="core\controls\div.h">
+      <Filter>Header Files\core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="core\controls\img.h">
+      <Filter>Header Files\core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="core\controls\span.h">
+      <Filter>Header Files\core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="util\string.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\tstring.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="win\builder.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\d2d_painter.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\dc.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\embed_resource.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\factory.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\file.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\font.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\gdi_painter.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\image.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\layered_window.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\local_resource.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\resource.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\widget_root.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="win\window.h">
+      <Filter>Header Files\win</Filter>
+    </ClInclude>
+    <ClInclude Include="xml\xml.h">
+      <Filter>Header Files\xml</Filter>
+    </ClInclude>
+    <ClInclude Include="xml\xmlstr.h">
+      <Filter>Header Files\xml</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

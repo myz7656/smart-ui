@@ -1,0 +1,74 @@
+﻿<widget>
+	<head>
+	<style type="text/css">
+		#test1 {
+			width:100%;
+			height:100%;
+			box-mode:modern;
+			padding-top:48px; 
+			background-color:#ffffff;
+		}
+		
+		div#button_change:hover {
+			color:#0000ff;
+			background-image:file(change_hover.png);
+		}
+		
+		div#button_change:down  {
+			color:#0000ff;
+			background-image:file(change_down.png);
+		}
+		
+		hr{
+			border:1px solid #ff0000;
+			width:100%;
+			padding-left:20px;
+			padding-right:20px;
+			margin-left:20px;
+		}
+		
+		
+	</style>
+	</head>
+	<body style="width:100%;height:100%;box-mode:modern;">
+	<div style="width:288px;height:100px;margin-top:60px;background-color:#ffffff;h-align:center;">
+				<span style="color:#000000;line-height:20px;font-size:14px;">设置存储目录122</span>
+				<span style="color:#000000;text-align:middle;line-height:35px;font-size:12px;">33设置存储目录</span>
+			</div>
+			
+		<div id="test1" style="">
+			<div style="width:120px;height:35px;margin-top:60px;background-color:#ff0000">
+				<!--<span style="padding-left:19px;color:#000000; text-align:middle;line-height:35px;">设置存储目录</span>-->
+			</div>
+			
+			<div id="action_change_url" style="margin-top:60px;background-image:file(input.png);height:35px;width:361px;">
+			    <div style="position:absolute;left:0px;top:0px;line-height:35px;width:10%;height:35px;v-align:middle;">
+					<realwnd id="editwnd" style="width:100%;height:20px;margin-left:2px;margin-top:9px;"/>
+				</div>
+				<img style="position:absolute;right:8px;top:8px" src="file(folder.png)" filter-event="filter"/>
+			</div>
+			<div id="button_change" style="color:#323232;margin-top:60px;margin-left:11px;
+				width:92px;height:35px; background-image:file(change_normal.png);h-align:center;" >
+				<span style="line-height:35px; text-align:middle; h-align:center;color:#000000;">更换</span>
+			</div>
+			<br/>
+			<div id="progress_div" style="padding-left:14px;padding-right:14px;margin-top:20px;
+				margin-left:20px;width:563px;height:88px;background-color:#f7f7f7;
+				box-mode:modern; h-align:center;v-align:middle;" visible="hidden">	
+				<div style="background-color:#ff0000;height:4px;"></div>
+				<br/>
+				<div style="background-color:#000000;height:4px;margin-top:-4px;width:50px;"></div>
+			</div>
+			<br/>
+			<hr  class="line" id="line" style=""/>
+
+			<br/>
+			<div id="test" style="margin-left:20px;width:350px;height:20px;background-color:#dddddd;border-radius:10px;"/>
+		</div>
+		<div style="position:absolute; left:0px; top:0px; width:100%; height:48px; background-color:#0087ee;" drag="enable">
+			<img style="position:absolute; left:19px; top:16px" src="file(logo.png)" filter-event="filter"/>
+			<div id="button_close" style="position:absolute; right:9px; top:7px; width:36px; height:36px; background-image:file(close_normal.png)" hover-style="background-image:file(close_hover.png)" down-style="background-image:file(close_down.png)"/>
+			<div id="button_min" style="position:absolute; right:50px; top:7px; width:36px; height:36px; background-image:file(min_normal.png)" hover-style="background-image:file(min_hover.png)" down-style="background-image:file(min_down.png)"/>
+		</div>
+	</body>
+</widget>

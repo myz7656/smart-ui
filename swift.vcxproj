@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1C452817-E097-45CF-A44A-6196B2CD113A}</ProjectGuid>
+    <RootNamespace>swift</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>.;$(VCInstallDir)include;$(VCInstallDir)atlmfc\include;$(WindowsSDK_IncludePath);</IncludePath>
+    <OutDir>../lib</OutDir>
+    <IntDir>../lib/swift</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;WIN_SYSTEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>../</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="base\locker.cpp" />
+    <ClCompile Include="base\task.cpp" />
+    <ClCompile Include="core\container.cpp" />
+    <ClCompile Include="core\controls\break.cpp" />
+    <ClCompile Include="core\controls\button.cpp" />
+    <ClCompile Include="core\controls\div.cpp" />
+    <ClCompile Include="core\controls\img.cpp" />
+    <ClCompile Include="core\controls\span.cpp" />
+    <ClCompile Include="core\layout.cpp" />
+    <ClCompile Include="core\object.cpp" />
+    <ClCompile Include="core\paint.cpp" />
+    <ClCompile Include="core\style.cpp" />
+    <ClCompile Include="core\widget.cpp" />
+    <ClCompile Include="util\string.cpp" />
+    <ClCompile Include="win\builder.cpp" />
+    <ClCompile Include="win\d2d_painter.cpp" />
+    <ClCompile Include="win\dc.cpp" />
+    <ClCompile Include="win\embed_resource.cpp" />
+    <ClCompile Include="win\file.cpp" />
+    <ClCompile Include="win\gdi_painter.cpp" />
+    <ClCompile Include="win\image.cpp" />
+    <ClCompile Include="win\local_resource.cpp" />
+    <ClCompile Include="win\widget_root.cpp" />
+    <ClCompile Include="xml\xml.cpp" />
+    <ClCompile Include="xml\xmlerror.cpp" />
+    <ClCompile Include="xml\xmlparser.cpp" />
+    <ClCompile Include="xml\xmlstr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="base\def.h" />
+    <ClInclude Include="base\locker.h" />
+    <ClInclude Include="base\message_pump.h" />
+    <ClInclude Include="base\message_pump.hpp" />
+    <ClInclude Include="base\scoped_ptr.h" />
+    <ClInclude Include="base\singleton.h" />
+    <ClInclude Include="base\task.h" />
+    <ClInclude Include="base\task_center.h" />
+    <ClInclude Include="base\task_center.hpp" />
+    <ClInclude Include="base\time_ticks.h" />
+    <ClInclude Include="base\tuple.h" />
+    <ClInclude Include="base\type_list.h" />
+    <ClInclude Include="core\attribute.h" />
+    <ClInclude Include="core\const.h" />
+    <ClInclude Include="core\container.h" />
+    <ClInclude Include="core\context.h" />
+    <ClInclude Include="core\controls\break.h" />
+    <ClInclude Include="core\controls\button.h" />
+    <ClInclude Include="core\controls\div.h" />
+    <ClInclude Include="core\controls\img.h" />
+    <ClInclude Include="core\controls\span.h" />
+    <ClInclude Include="core\def.h" />
+    <ClInclude Include="core\layout.h" />
+    <ClInclude Include="core\object.h" />
+    <ClInclude Include="core\paint.h" />
+    <ClInclude Include="core\style.h" />
+    <ClInclude Include="core\types.h" />
+    <ClInclude Include="core\widget.h" />
+    <ClInclude Include="util\string.h" />
+    <ClInclude Include="util\tstring.h" />
+    <ClInclude Include="win\builder.h" />
+    <ClInclude Include="win\d2d_painter.h" />
+    <ClInclude Include="win\dc.h" />
+    <ClInclude Include="win\embed_resource.h" />
+    <ClInclude Include="win\factory.h" />
+    <ClInclude Include="win\file.h" />
+    <ClInclude Include="win\font.h" />
+    <ClInclude Include="win\gdi_painter.h" />
+    <ClInclude Include="win\image.h" />
+    <ClInclude Include="win\layered_window.h" />
+    <ClInclude Include="win\local_resource.h" />
+    <ClInclude Include="win\resource.h" />
+    <ClInclude Include="win\widget_root.h" />
+    <ClInclude Include="win\window.h" />
+    <ClInclude Include="xml\xml.h" />
+    <ClInclude Include="xml\xmlstr.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

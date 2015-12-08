@@ -1,0 +1,50 @@
+﻿<widget>
+	<head>
+	</head>
+	<body style="width:100%;height:100%;border:1px solid #0087ee; box-mode:modern;">
+		<div style="width:100%;height:100%;box-mode:modern;padding-top:80px; background-color:#ffffff;">
+			<div id="my_disk" style="width:100%;height:35px;margin-top:0px;" hover-style="color:#0000ff;background-image:file(change_hover.png);" down-style="color:#0000ff;background-image:file(change_down.png);">
+				<img style="margin-left:21px;margin-top:10px" src="file(icon_cloud.png)" filter-event="filter"/>
+				<span style="padding-left:8px;color:#323232; text-align:middle;line-height:35px;">我的云盘</span>
+			</div>
+			<br/>
+			<div id="group_disk" style="width:100%;height:35px;margin-top:0px;" hover-style="color:#0000ff;background-image:file(change_hover.png);" down-style="color:#0000ff;background-image:file(change_down.png);">
+				<span style="padding-left:50px;color:#323232; text-align:middle;line-height:35px;">部门云盘</span>
+			</div>
+			<br/>
+			<div id="project_disk" style="width:100%;height:35px;margin-top:0px;" hover-style="color:#0000ff;background-image:file(change_hover.png);" down-style="color:#0000ff;background-image:file(change_down.png);">
+				<span style="padding-left:50px;color:#323232; text-align:middle;line-height:35px;">项目云盘</span>
+			</div>
+			<br/>
+			<div id="website" style="width:100%;height:35px;margin-top:0px;" hover-style="color:#0000ff;background-image:file(change_hover.png);" down-style="color:#0000ff;background-image:file(change_down.png);">
+				<span style="padding-left:50px;color:#323232; text-align:middle;line-height:35px;">云盘网站</span>
+			</div>
+			<br/>
+			<div style="margin-top:4px;background-image:file(menu_bottom_middle.png);height:45px;width:100%;" >
+				<div id="button_setting" style="margin-left:23px;margin-top:10px;width:70px; height:100%;">
+					<img  style="" src="file(icon_setting.png)"/>
+					<span style="color:#323232;margin-left:8px;">设置</span>
+				</div>
+				<div id="button_exit" style="margin-top:10px;width:90px; height:100%;">
+					<img  style=""  src="file(icon_exit.png)" filter-event="filter"/>
+					<span style="color:#323232;margin-left:8px;">退出</span>
+				</div>
+				
+			</div>
+			<br/>
+			
+		</div>
+		<div style="position:absolute; left:0px; top:0px; width:100%; height:80px; background-color:#0087ee;" drag="enable">
+			<frame-grid-img id="user_icon" style="position:absolute; left:14px; top:14px" src="file(btn_iknow.png)" filter-event="filter" frame-length="92px"/>
+			<div id="button_logout" style="position:absolute; right:15px; top:6px; width:37px; height:13px; background-image:file(logout.png)"/>
+			
+			
+			<div id="tab_username" style="position:absolute; left:80px; top:20px; width:36px; height:18px; ">
+			<span style="color:#ffffff; text-align:middle;line-height:20px;">用户名</span>
+			</div>
+			<div id="tab_username" style="position:absolute; left:80px; top:38px; width:36px; height:18px; ">
+			<span style="color:#ffffff; text-align:middle;line-height:20px;">4.1G</span>
+			</div>
+		</div>
+	</body>
+</widget>

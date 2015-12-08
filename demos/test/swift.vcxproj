@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\base\def.h" />
+    <ClInclude Include="..\..\base\locker.h" />
+    <ClInclude Include="..\..\base\message_pump.h" />
+    <ClInclude Include="..\..\base\message_pump.hpp" />
+    <ClInclude Include="..\..\base\scoped_ptr.h" />
+    <ClInclude Include="..\..\base\singleton.h" />
+    <ClInclude Include="..\..\base\task.h" />
+    <ClInclude Include="..\..\base\task_center.h" />
+    <ClInclude Include="..\..\base\task_center.hpp" />
+    <ClInclude Include="..\..\base\time_ticks.h" />
+    <ClInclude Include="..\..\base\tuple.h" />
+    <ClInclude Include="..\..\base\type_list.h" />
+    <ClInclude Include="..\..\core\attribute.h" />
+    <ClInclude Include="..\..\core\const.h" />
+    <ClInclude Include="..\..\core\container.h" />
+    <ClInclude Include="..\..\core\context.h" />
+    <ClInclude Include="..\..\core\controls\break.h" />
+    <ClInclude Include="..\..\core\controls\button.h" />
+    <ClInclude Include="..\..\core\controls\div.h" />
+    <ClInclude Include="..\..\core\controls\hr.h" />
+    <ClInclude Include="..\..\core\controls\img.h" />
+    <ClInclude Include="..\..\core\controls\realwnd.h" />
+    <ClInclude Include="..\..\core\controls\span.h" />
+    <ClInclude Include="..\..\core\def.h" />
+    <ClInclude Include="..\..\core\layout.h" />
+    <ClInclude Include="..\..\core\object.h" />
+    <ClInclude Include="..\..\core\paint.h" />
+    <ClInclude Include="..\..\core\style.h" />
+    <ClInclude Include="..\..\core\types.h" />
+    <ClInclude Include="..\..\core\widget.h" />
+    <ClInclude Include="..\..\css\css.h" />
+    <ClInclude Include="..\..\css\declare.h" />
+    <ClInclude Include="..\..\css\selector.h" />
+    <ClInclude Include="..\..\util\string.h" />
+    <ClInclude Include="..\..\util\tstring.h" />
+    <ClInclude Include="..\..\win\builder.h" />
+    <ClInclude Include="..\..\win\dc.h" />
+    <ClInclude Include="..\..\win\embed_resource.h" />
+    <ClInclude Include="..\..\win\factory.h" />
+    <ClInclude Include="..\..\win\file.h" />
+    <ClInclude Include="..\..\win\font.h" />
+    <ClInclude Include="..\..\win\gdi_painter.h" />
+    <ClInclude Include="..\..\win\image.h" />
+    <ClInclude Include="..\..\win\local_resource.h" />
+    <ClInclude Include="..\..\win\resource.h" />
+    <ClInclude Include="..\..\win\widget_root.h" />
+    <ClInclude Include="..\..\win\window.h" />
+    <ClInclude Include="..\..\xml\xml.h" />
+    <ClInclude Include="..\..\xml\xmlstr.h" />
+    <ClInclude Include="maindlg.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\base\locker.cpp" />
+    <ClCompile Include="..\..\base\task.cpp" />
+    <ClCompile Include="..\..\core\container.cpp" />
+    <ClCompile Include="..\..\core\context.cpp" />
+    <ClCompile Include="..\..\core\controls\break.cpp" />
+    <ClCompile Include="..\..\core\controls\button.cpp" />
+    <ClCompile Include="..\..\core\controls\div.cpp" />
+    <ClCompile Include="..\..\core\controls\hr.cpp" />
+    <ClCompile Include="..\..\core\controls\img.cpp" />
+    <ClCompile Include="..\..\core\controls\realwnd.cpp" />
+    <ClCompile Include="..\..\core\controls\span.cpp" />
+    <ClCompile Include="..\..\core\layout.cpp" />
+    <ClCompile Include="..\..\core\object.cpp" />
+    <ClCompile Include="..\..\core\paint.cpp" />
+    <ClCompile Include="..\..\core\style.cpp" />
+    <ClCompile Include="..\..\core\widget.cpp" />
+    <ClCompile Include="..\..\css\css.cpp" />
+    <ClCompile Include="..\..\css\declare.cpp" />
+    <ClCompile Include="..\..\css\selector.cpp" />
+    <ClCompile Include="..\..\util\string.cpp" />
+    <ClCompile Include="..\..\win\builder.cpp" />
+    <ClCompile Include="..\..\win\dc.cpp" />
+    <ClCompile Include="..\..\win\embed_resource.cpp" />
+    <ClCompile Include="..\..\win\file.cpp" />
+    <ClCompile Include="..\..\win\gdi_painter.cpp" />
+    <ClCompile Include="..\..\win\image.cpp" />
+    <ClCompile Include="..\..\win\local_resource.cpp" />
+    <ClCompile Include="..\..\win\widget_root.cpp" />
+    <ClCompile Include="..\..\xml\xml.cpp" />
+    <ClCompile Include="..\..\xml\xmlerror.cpp" />
+    <ClCompile Include="..\..\xml\xmlparser.cpp" />
+    <ClCompile Include="..\..\xml\xmlstr.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>test</ProjectName>
+    <ProjectGuid>{10BC3C99-3085-46C0-89CA-476F4927E460}</ProjectGuid>
+    <RootNamespace>iFace</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfAtl>Static</UseOfAtl>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\bin\win32d\</OutDir>
+    <IntDir>..\..\bin\win32d\test\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\bin\win32\</OutDir>
+    <IntDir>..\..\bin\win32\test\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\;..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WIN_SYSTEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)test.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;WIN_SYSTEM;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)demo.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

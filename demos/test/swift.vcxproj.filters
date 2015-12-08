@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="base">
+      <UniqueIdentifier>{734310b8-1b67-4515-a886-882d840aa694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{8380c660-988c-4ec7-92d9-8f7fe132dab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="xml">
+      <UniqueIdentifier>{6cad49dc-f343-4ca8-b73c-0130ae2b56df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{959cef6f-d12a-4e3e-b4ad-d4c12d240e29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win">
+      <UniqueIdentifier>{2c50880c-ea5d-4bfb-96b5-00bc77a398fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\controls">
+      <UniqueIdentifier>{e04656e4-d57f-4d47-9299-f2dd2f060a17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="css">
+      <UniqueIdentifier>{eb9de695-5f1f-4438-9abc-21fa09570d35}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\base\def.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\locker.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\message_pump.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\message_pump.hpp">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\singleton.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\task.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\task_center.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\task_center.hpp">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\time_ticks.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\tuple.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\xml\xml.h">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\xml\xmlstr.h">
+      <Filter>xml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\object.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\def.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\attribute.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\const.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\style.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\types.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\widget.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\dc.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\image.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\file.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\builder.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\scoped_ptr.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\factory.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\string.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\util\tstring.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\widget_root.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\container.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\window.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="maindlg.h" />
+    <ClInclude Include="..\..\win\resource.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\local_resource.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\embed_resource.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\layout.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\paint.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\font.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\context.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\div.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\span.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\break.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\button.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\img.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\base\type_list.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\win\gdi_painter.h">
+      <Filter>win</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\hr.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\css\css.h">
+      <Filter>css</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\css\declare.h">
+      <Filter>css</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\css\selector.h">
+      <Filter>css</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\core\controls\realwnd.h">
+      <Filter>core\controls</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\base\task.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\base\locker.cpp">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xml\xml.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xml\xmlerror.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xml\xmlparser.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\xml\xmlstr.cpp">
+      <Filter>xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\object.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\style.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\widget.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\dc.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\image.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\file.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\builder.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\widget_root.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\container.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\util\string.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\local_resource.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\embed_resource.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\layout.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\paint.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\div.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\span.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\break.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\button.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\img.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\win\gdi_painter.cpp">
+      <Filter>win</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\hr.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\context.cpp">
+      <Filter>core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\css\css.cpp">
+      <Filter>css</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\css\declare.cpp">
+      <Filter>css</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\css\selector.cpp">
+      <Filter>css</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\core\controls\realwnd.cpp">
+      <Filter>core\controls</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
