@@ -323,47 +323,6 @@ namespace win
         return 0;
     }
 
-    void WinPainterImpl::DrawStringNormal( const RECT & rect, core::Color &color, HFONT font, const std::wstring &text, DWORD format )
-    {
-        RECT rect_draw = rect;
-        int nOldMode = ::SetBkMode(GetDC(), TRANSPARENT);
-        COLORREF crOld = ::SetTextColor(GetDC(), RGB(color.rgb_value.r, color.rgb_value.g, color.rgb_value.b));
-        HFONT old_font = (HFONT)::SelectObject(GetDC(), font);
-
-        ::DrawText(GetDC(), text.c_str(), text.size(), &rect_draw, format);
-
-        ::SelectObject(GetDC(), old_font);
-        ::SetTextColor(GetDC(), crOld);
-        ::SetBkMode(GetDC(), nOldMode);
-    }
-
-    void WinPainterImpl::DrawStringLayered( const RECT &rect, core::Color &color, HFONT font, const std::wstring &text, DWORD format, int alpha )
-    {
-        int width = rect.right - rect.left;
-        int height = rect.bottom - rect.top;
-
-        win::Image image;
-        image.CreateDIBSection(width, height);
-
-        {
-            win::WinMemoryDC mem_dc(image);
-            ::SetBkMode(mem_dc, TRANSPARENT);
-            ::SetTextColor(mem_dc, RGB(color.rgb_value.r, color.rgb_value.g, color.rgb_value.b));
-
-            HFONT old_font = (HFONT)::SelectObject(mem_dc, font);
-
-            RECT rect_draw = {0, 0, width, height};
-            ::DrawText(mem_dc, text.c_str(), text.size(), &rect_draw, format);
-            ::SelectObject(mem_dc, old_font);
-        }
-
-        image.SetAlpha(MAX_ALPHA, RGB(color.rgb_value.b, color.rgb_value.g, color.rgb_value.r));
-
-        RECT rect_draw = { rect.left, rect.top, rect.right, rect.bottom };
-        image.TileBlt(GetDC(), rect_draw, alpha);
-        image.Release();
-    }
-
     void WinPainterImpl::DrawLine(POINT start, POINT stop, int nStrokeWidth, core::Color color, DWORD style, int alpha)
     {
         int width = abs(stop.x - start.x);

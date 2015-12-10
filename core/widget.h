@@ -44,7 +44,8 @@ namespace core
         ST_RBUTTONUP,
         ST_KEYDOWN,
         ST_KEYUP,
-        ST_CHAR
+        ST_CHAR,
+        ST_SHOW
     };
 
     #define BEGIN_MESSAGE_MAP()\
@@ -84,7 +85,12 @@ namespace core
     public:
         virtual bool OnMessageObserver(StWidget* widget, UINT msg, WPARAM wparam, LPARAM lparam, bool before) = 0;
     };
-
+    
+    class IClickListener
+    {
+    public:
+        virtual bool OnClick(StWidget* widget, WPARAM wparam, LPARAM lparam) = 0;
+    };
 
     class StWidget : public StAttributeSet
     {
@@ -146,6 +152,9 @@ namespace core
         void                RemoveMessageObserver(IMessageObserver *observer);
         void                NotifyObservers(UINT umsg, WPARAM wparam, LPARAM lparam, bool before);
 
+        void                AddClickListener(IClickListener* listener);
+        void                RemoveClickListener(IClickListener* listener);
+        void                NotifyClickListeners(WPARAM wparam, LPARAM lparam);
 
         KeyWidget    Key();
 
@@ -177,7 +186,7 @@ namespace core
         LRESULT     Dispatch(UINT umsg, WPARAM wparam, LPARAM lparam);
 
         void        ReLayoutSelf(bool repaint = true);
-        void        UpdateLayout(bool repaint = true);
+        void        ReLayout(bool repaint = true);
         void        Invalidate();
         void        InvalidateRect(RECT &rect);
 
@@ -212,6 +221,7 @@ namespace core
             MESSAGE_HANDLE(ST_KEYDOWN,     OnKeyDown    )
             MESSAGE_HANDLE(ST_KEYUP,       OnKeyUp      )
             MESSAGE_HANDLE(ST_CHAR,        OnChar       )
+            MESSAGE_HANDLE(ST_SHOW,        OnShow)
         END_MESSAGE_MAP()
 
         LRESULT OnCalculate   (WPARAM, LPARAM, bool*);
@@ -228,6 +238,7 @@ namespace core
         LRESULT OnKeyDown     (WPARAM, LPARAM, bool*);
         LRESULT OnKeyUp       (WPARAM, LPARAM, bool*);
         LRESULT OnChar        (WPARAM, LPARAM, bool*);
+        LRESULT OnShow        (WPARAM, LPARAM, bool*);
 
     protected:
         Context*    context_;
@@ -253,6 +264,9 @@ namespace core
 
         typedef std::vector<IMessageObserver*> MessageObservers;
         MessageObservers  observers_;
+
+        typedef std::vector<IClickListener*> ClickListeners;
+        ClickListeners    click_listeners_;
 
     private:
         DISABLE_COPY_AND_ASSIGN(StWidget)

@@ -111,7 +111,7 @@ namespace core
     void StPanel::AddWidget(StWidget* widget)
     {
         LinkEnd(widget);
-        UpdateLayout(false);
+        ReLayout(false);
         Invalidate();
     }
 
@@ -119,7 +119,7 @@ namespace core
     {
         Remove(widget);
         widget->Drop();
-        UpdateLayout(false);
+        ReLayout(false);
         Invalidate();
     }
 

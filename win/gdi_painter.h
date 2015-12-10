@@ -106,27 +106,8 @@ namespace win
             core::Color crBorder,
             int alpha);
 
-
-//         virtual void DrawPath(
-//             );
-
     protected:
         HDC GetDC();
-
-        void DrawStringNormal( 
-            const RECT & rect, 
-            core::Color &color, 
-            HFONT font, 
-            const std::wstring &text, 
-            DWORD format);
-
-        void DrawStringLayered( 
-            const RECT &rect, 
-            core::Color &color, 
-            HFONT font, 
-            const std::wstring &text, 
-            DWORD format, 
-            int alpha);
 
     private:
         ULONG_PTR gdi_token_;

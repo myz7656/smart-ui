@@ -68,6 +68,7 @@
     <ClInclude Include="..\..\win\gdi_painter.h" />
     <ClInclude Include="..\..\win\image.h" />
     <ClInclude Include="..\..\win\layered_window.h" />
+    <ClInclude Include="..\..\win\tooltip.h" />
     <ClInclude Include="..\..\win\widget_root.h" />
     <ClInclude Include="..\..\win\window.h" />
     <ClInclude Include="..\..\xml\xml.h" />

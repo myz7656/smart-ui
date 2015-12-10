@@ -19,15 +19,19 @@ namespace core
         void SetHWnd(HWND hWnd);
         HWND GetHWnd();
 
+        virtual void Move(int x, int y, bool onlyChild);
+
     protected:
         BEGIN_MESSAGE_MAP()
             MESSAGE_HANDLE(ST_LAYOUT, OnLayout)
             MESSAGE_HANDLE(ST_PAINT, OnPaint)
+            MESSAGE_HANDLE(ST_SHOW, OnShow)
             CHAIN_MESSAGE_MAP(StWidget)
         END_MESSAGE_MAP()
 
         LRESULT OnLayout(WPARAM, LPARAM, bool*);
         LRESULT OnPaint(WPARAM, LPARAM, bool*);
+        LRESULT OnShow(WPARAM, LPARAM, bool*);
 
     protected:
         HWND hwnd_;

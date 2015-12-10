@@ -308,6 +308,7 @@ namespace core
     void StWidget::SetVisible(bool visible)
     {
         AddAttribute(WIDGET_PROPERTY_VISIBLE, visible);
+        Dispatch(ST_SHOW, (WPARAM)visible, 0);
     }
 
     std::wstring StWidget::Title()
@@ -405,7 +406,7 @@ namespace core
         }
     }
 
-    void StWidget::UpdateLayout(bool repaint)
+    void StWidget::ReLayout(bool repaint)
     {
         RECT rect_update = layout_rect_.border;
 
@@ -738,8 +739,13 @@ namespace core
         return TRUE;
     }
 
-    LRESULT StWidget::OnLButtonUp(WPARAM, LPARAM, bool*)
+    LRESULT StWidget::OnLButtonUp(WPARAM wparam, LPARAM lparam, bool*)
     {
+        if (ActionState() == ACTION_STATE_DOWN)
+        {
+            NotifyClickListeners(wparam, lparam);
+        }
+
         SetActionState(ACTION_STATE_HOVER);
         return TRUE;
     }
@@ -773,4 +779,46 @@ namespace core
     {
         return TRUE;
     }
+
+    LRESULT StWidget::OnShow( WPARAM, LPARAM, bool* )
+    {
+        return TRUE;
+    }
+
+    void StWidget::AddClickListener(IClickListener* listener)
+    {
+        if (listener)
+        {
+            click_listeners_.push_back(listener);
+        }
+    }
+
+    void StWidget::RemoveClickListener(IClickListener* listener)
+    {
+        if (!listener)
+        {
+            return;
+        }
+        ClickListeners::iterator iter = click_listeners_.begin();
+        while (iter != click_listeners_.end())
+        {
+            if (listener == *iter)
+            {
+                click_listeners_.erase(iter);
+                break;
+            }
+            ++iter;
+        }
+    }
+
+    void StWidget::NotifyClickListeners( WPARAM wparam, LPARAM lparam )
+    {
+        ClickListeners::iterator iter = click_listeners_.begin();
+        while (iter != click_listeners_.end())
+        {
+            (*iter)->OnClick(this, wparam, lparam);
+            ++iter;
+        }
+    }
+
 }

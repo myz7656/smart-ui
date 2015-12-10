@@ -211,6 +211,9 @@
     <ClInclude Include="..\..\win\asset_loader.h">
       <Filter>win</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\win\tooltip.h">
+      <Filter>win</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\base\task.cpp">

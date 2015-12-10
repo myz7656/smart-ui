@@ -36,7 +36,6 @@ namespace core
         }
 
         RECT rc = layout_rect_.content;
-        ShowWindow(GetHWnd(), IsVisible() ? SW_SHOW : SW_HIDE);
         ::MoveWindow(GetHWnd(), rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top, TRUE);
 
         return TRUE;
@@ -51,4 +50,23 @@ namespace core
     {
         return hwnd_;
     }
+
+    LRESULT StRealWnd::OnShow(WPARAM wparam, LPARAM, bool*)
+    {
+        bool visible = bool(wparam);
+        ShowWindow(GetHWnd(), visible ? SW_SHOW : SW_HIDE);
+        return TRUE;
+    }
+
+    void StRealWnd::Move(int x, int y, bool onlyChild)
+    {
+        StWidget::Move(x, y, onlyChild);
+
+        if (x != 0 || y != 0)
+        {
+            RECT rc = layout_rect_.content;
+            ::MoveWindow(GetHWnd(), rc.left, rc.top, rc.right - rc.left, rc.bottom - rc.top, TRUE);
+        }
+    }
+
 }

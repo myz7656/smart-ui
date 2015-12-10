@@ -4,13 +4,13 @@
 #include <windows.h>
 #include <atlbase.h>
 #include <atlwin.h>
+#include <commctrl.h>
+#pragma comment(lib, "Comctl32.lib")
 
 #include "win/widget_root.h"
 #include "win/image.h"
 #include "win/gdi_painter.h"
-
-#include "third_party/inc/wtl/atlapp.h"
-#include "third_party/inc/wtl/atlctrls.h"
+#include "win/tooltip.h"
 
 #define BEGIN_WIDGET_MESSAGE_MAP()\
     virtual bool OnMessageObserver(core::StWidget* widget, UINT umsg, WPARAM wparam, LPARAM lparam, bool before)\
@@ -48,8 +48,32 @@
 #define WIDGET_MOUSELEAVE(id, func) WIDGET_MESSAGE_HANDLE(core::ST_MOUSELEAVE, id, false, func)
 
 
-typedef CWinTraits<WS_POPUP | WS_VISIBLE | WS_CLIPCHILDREN | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_TABSTOP>    WinImplTraits;
+#define BEGIN_WIDGET_CLICK_MAP()\
+    virtual bool OnClick(core::StWidget* widget, WPARAM wparam, LPARAM lparam)\
+    {\
+        bool handled = false;\
+        std::string widget_id;\
+        widget->GetAttribute(core::WIDGET_PROPERTY_ID, &widget_id);\
+        if (widget_id.empty())\
+        {\
+            return false;\
+        }
 
+#define END_WIDGET_CLICK_MAP()\
+            handled = false;\
+        return handled;\
+    }
+
+#define ON_CLICK(id, func)\
+        if (strcmp(widget_id.c_str(), id) == 0)\
+        {\
+            func(widget, wparam, lparam);\
+            handled = true;\
+        }\
+        else
+
+
+typedef CWinTraits<WS_POPUP | WS_VISIBLE | WS_CLIPCHILDREN | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_TABSTOP>    WinImplTraits;
 
 
 namespace win
@@ -65,8 +89,6 @@ namespace win
             : alpha_(255)
             , capture_(false)
             , track_flag_(FALSE)
-            , ret_code_(0)
-            , exit_modal_loop_(FALSE)
         {
             widget_root_.SetRuntimeContext(&context_);
         }
@@ -120,6 +142,57 @@ namespace win
             return TRUE;
         }
 
+        BOOL UnRegisterMessageObserver(const std::string &id, core::IMessageObserver* observer)
+        {
+            if (id.size() <= 0 || !observer)
+            {
+                return FALSE;
+            }
+
+            core::StWidget * widget = widget_root_.FindWidget(id);
+            if (!widget)
+            {
+                return FALSE;
+            }
+
+            widget->RemoveMessageObserver(observer);
+            return TRUE;
+        }
+
+        BOOL BindClickListener(const std::string& id, core::IClickListener* listener)
+        {
+            if (id.size() <= 0 || !listener)
+            {
+                return FALSE;
+            }
+
+            core::StWidget * widget = widget_root_.FindWidget(id);
+            if (!widget)
+            {
+                return FALSE;
+            }
+
+            widget->AddClickListener(listener);
+            return TRUE;
+        }
+
+        BOOL UnBindClickListener(const std::string& id, core::IClickListener* listener)
+        {
+            if (id.size() <= 0 || !listener)
+            {
+                return FALSE;
+            }
+
+            core::StWidget * widget = widget_root_.FindWidget(id);
+            if (!widget)
+            {
+                return FALSE;
+            }
+
+            widget->RemoveClickListener(listener);
+            return TRUE;
+        }
+
         BOOL SetAttribute(const std::string &id, const std::string &name, const std::string &value)
         {
             if (id.empty() || name.empty())
@@ -141,7 +214,39 @@ namespace win
 
             if ((result & core::ATTRIBUTE_TRAIT_LAYOUT) == core::ATTRIBUTE_TRAIT_LAYOUT)
             {
-                widget->UpdateLayout();
+                widget->ReLayout();
+            }
+            else if ((result & core::ATTRIBUTE_TRAIT_PAINT) == core::ATTRIBUTE_TRAIT_PAINT)
+            {
+                widget->Invalidate();
+            }
+
+            return TRUE;
+        }
+
+        BOOL SetStyle(const std::string &id, const std::string &name, const std::string &value, DWORD state)
+        {
+            if (id.empty() || name.empty())
+            {
+                return FALSE;
+            }
+
+            core::StWidget *widget = widget_root_.FindWidget(id);
+            if (!widget)
+            {
+                return FALSE;
+            }
+
+            core::StStyle& style = widget->GetStyle(state);
+            DWORD result = 0;
+            if (!style.SetAttribute(name.c_str(), value.c_str(), &result))
+            {
+                return FALSE;
+            }
+
+            if ((result & core::ATTRIBUTE_TRAIT_LAYOUT) == core::ATTRIBUTE_TRAIT_LAYOUT)
+            {
+                widget->ReLayout();
             }
             else if ((result & core::ATTRIBUTE_TRAIT_PAINT) == core::ATTRIBUTE_TRAIT_PAINT)
             {
@@ -165,7 +270,7 @@ namespace win
             ::SetActiveWindow(m_hWnd);
         }
 
-        INT_PTR DoModal(HWND hWndParent = NULL, LPRECT rect = NULL)
+        UINT DoModal(HWND hWndParent = NULL, LPRECT rect = NULL)
         {
             BOOL bEnableParent = FALSE;
 
@@ -208,9 +313,8 @@ namespace win
                 ::AttachThreadInput(dwCurID, dwForeID, FALSE);
             }
 
-            RunModalLoop();
+            UINT code = RunModalLoop();
 
-            exit_modal_loop_ = FALSE;
             SetWindowPos(
                 NULL, 0, 0, 0, 0, 
                 SWP_HIDEWINDOW | SWP_NOSIZE | SWP_NOMOVE | SWP_NOACTIVATE | SWP_NOZORDER);
@@ -224,14 +328,13 @@ namespace win
             }
 
             DestroyWindow();
-            return ret_code_;
+
+            return code;
         }
 
-        void EndDialog(UINT uResult)
+        void EndDialog(UINT code)
         {
-            ret_code_ = uResult;
-            exit_modal_loop_ = TRUE;
-            PostMessage(WM_NULL);
+            PostMessage(WM_NULL, (WPARAM)code);
         }
 
     protected:
@@ -253,10 +356,10 @@ namespace win
         {
             context_.SetHWND(m_hWnd);
 
-            m_ctrlTip.Create(m_hWnd, NULL, NULL, 0, WS_EX_TOPMOST);
-            m_ctrlTip.AddTool(m_hWnd);
-            m_ctrlTip.SetMaxTipWidth(260);
-            m_ctrlTip.Activate(TRUE);
+            tool_tip_.Create(m_hWnd);
+            tool_tip_.SetMaxTipWidth(MAX_PATH);
+            tool_tip_.Activate(TRUE);
+
             return TRUE;
         }
 
@@ -395,12 +498,12 @@ namespace win
         {
             MSG msg = { m_hWnd, uMsg, wParam, lParam };
 
-            if (m_ctrlTip.IsWindow())
+            if (tool_tip_.IsWindow())
             {
-                m_ctrlTip.RelayEvent(&msg);
+                tool_tip_.RelayEvent(&msg);
             }
 
-            bHandled = FALSE; 
+            bHandled = FALSE;
             return FALSE;
         }
 
@@ -440,13 +543,8 @@ namespace win
             if (widget && widget != active)
             {
                 widget->Dispatch(core::ST_MOUSEHOVER, (WPARAM)wParam, (LPARAM)lParam);
-                std::wstring strTitle = widget->Title();
 
-                if (strTitle != m_strOldTip)
-                {
-                    m_ctrlTip.UpdateTipText(strTitle.c_str(), m_hWnd);
-                    m_strOldTip = strTitle;
-                }
+                tool_tip_.UpdateTipText(widget->Title().c_str());
 
                 if (active)
                 {
@@ -454,16 +552,16 @@ namespace win
                 }
                 widget_root_.SetActive(widget);
             }
-            else if (widget == NULL)
+            else if (widget == 0)
             {
-                m_ctrlTip.UpdateTipText(_T(""), m_hWnd);
+                tool_tip_.UpdateTipText(0);
             }
             return TRUE;
         }
 
         HRESULT OnMouseLeave(UINT, WPARAM wParam, LPARAM lParam, BOOL)
         {
-            track_flag_ = false;
+            track_flag_ = FALSE;
             core::StWidget* active = widget_root_.Active();
             if (active)
             {
@@ -591,40 +689,22 @@ namespace win
 
         virtual void RefreshOnDebug() {}
 
-        void RunModalLoop()
+        UINT RunModalLoop()
         {
-            BOOL bRet;
-            MSG msg;
-
-            for(;;)
+            UINT code = 0;
+            while (::GetMessage(&msg, NULL, 0, 0))
             {
-                if (::PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
+                if (msg.message == WM_NULL)
                 {
-                    if (WM_QUIT == msg.message)
-                        break;
-                }
-
-                if (exit_modal_loop_ || NULL == m_hWnd || !::IsWindow(m_hWnd))
+                    code = (UINT)msg.wParam;
                     break;
-
-                bRet = ::GetMessage(&msg, NULL, 0, 0);
-
-                if (bRet == -1)
-                {
-                    continue;   // error, don't process
-                }
-                else if (!bRet)
-                {
-                    ATLTRACE(L"Why Receive WM_QUIT here?\r\n");
-                    break;   // WM_QUIT, exit message loop
                 }
 
-                if (!IsDialogMessage(&msg))
-                {
-                    ::TranslateMessage(&msg);
-                    ::DispatchMessage(&msg);
-                }
+                ::TranslateMessage(&msg);
+                ::DispatchMessage(&msg);
             }
+
+            return code;
         }
     protected:
         core::Context   context_;
@@ -636,11 +716,8 @@ namespace win
         std::wstring    xml_file_;
 
         bool            capture_;
-        CToolTipCtrl    m_ctrlTip;
-        std::wstring    m_strOldTip;
+        ToolTip         tool_tip_;
         BOOL            track_flag_;
-        UINT            ret_code_;
-        BOOL            exit_modal_loop_;
     };
 }
 
